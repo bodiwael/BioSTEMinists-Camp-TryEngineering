@@ -247,8 +247,8 @@
   .gallery{background:var(--lavender);}
   .gal-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
   @media (max-width:900px){ .gal-grid{grid-template-columns:repeat(2,1fr);} }
-  .gal-grid img{border-radius:18px; aspect-ratio:1/1; object-fit:cover; transition:transform .35s ease;}
-  .gal-grid a{overflow:hidden; border-radius:18px; display:block;}
+  .gal-grid img{border-radius:18px; aspect-ratio:1/1; object-fit:cover; transition:transform .35s ease; width:100%; height:100%;}
+  .gal-grid a{overflow:hidden; border-radius:18px; display:block; position:relative; aspect-ratio:1/1;}
   .gal-grid a:hover img{transform:scale(1.06);}
 
   /* ---------- impact / goals ---------- */
@@ -467,17 +467,9 @@
 
       <div class="track-panel active" id="junior">
         <div class="track-img" style="background:linear-gradient(135deg,#BFE7E2,#9FD6CF); display:flex; align-items:center; justify-content:center;">
-          <!-- Drop a real photo at assets/track-junior.jpg (4:3.4 landscape) to replace this placeholder automatically -->
-          <img src="assets/track-junior.jpg" alt="Junior Innovators building a heart-rate sensor circuit" loading="lazy"
+          <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80&fit=crop" alt="Junior Innovators building a heart-rate sensor circuit" loading="lazy"
                style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
                onerror="this.style.display='none'">
-          <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
-            <circle cx="150" cy="100" r="60" fill="#FF6E5E"/>
-            <circle cx="150" cy="80" r="26" fill="#003C64"/>
-            <rect x="100" y="140" width="100" height="70" rx="14" fill="#00629B"/>
-            <path d="M40 190 L90 190 L100 160 L116 220 L130 190 L260 190" stroke="#0B2438" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="116" cy="220" r="6" fill="#0B2438"/>
-          </svg>
           <span class="age-pill">Ages 5–12</span>
         </div>
         <div>
@@ -495,18 +487,9 @@
 
       <div class="track-panel" id="young">
         <div class="track-img" style="background:linear-gradient(135deg,#9CC9E0,#7FD3C4); display:flex; align-items:center; justify-content:center;">
-          <!-- Drop a real photo at assets/track-young.jpg (4:3.4 landscape) to replace this placeholder automatically -->
-          <img src="assets/track-young.jpg" alt="Young Researchers analyzing ECG data on a laptop" loading="lazy"
+          <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80&fit=crop" alt="Young Researchers analyzing ECG data on a laptop" loading="lazy"
                style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
                onerror="this.style.display='none'">
-          <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
-            <rect x="60" y="50" width="180" height="120" rx="10" fill="#003C64"/>
-            <rect x="75" y="64" width="150" height="80" rx="4" fill="#0B2438"/>
-            <path d="M85 110 L110 110 L120 90 L132 130 L142 100 L215 100" stroke="#FF6E5E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="120" y="170" width="60" height="14" rx="4" fill="#00629B"/>
-            <circle cx="230" cy="190" r="22" fill="#FF6E5E"/>
-            <path d="M222 190 l6 6 12 -14" stroke="#0B2438" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
           <span class="age-pill">Ages 12–18</span>
         </div>
         <div>
@@ -571,34 +554,22 @@
       </div>
       <div class="gal-grid">
         <a href="#" style="position:relative; background:linear-gradient(135deg,#FF6E5E,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-1.jpg to replace -->
-          <img src="assets/gallery-1.jpg" alt="Camper presenting a biosignal project" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><path d="M10 60h16l9-26 14 46 11-32 7 12h33" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img src="https://images.unsplash.com/photo-1531482615713-2afd69097998?w=600&q=80&fit=crop&h=600" alt="Camper presenting a biosignal project" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
         <a href="#" style="position:relative; background:linear-gradient(135deg,#00629B,#003C64); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-2.jpg to replace -->
-          <img src="assets/gallery-2.jpg" alt="Mentor guiding campers through a circuit build" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#BFE7E2" stroke-width="5"/><circle cx="50" cy="50" r="14" fill="#FF6E5E"/></svg>
+          <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=600&q=80&fit=crop&h=600" alt="Mentor guiding campers through a circuit build" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
         <a href="#" style="position:relative; background:linear-gradient(135deg,#00897B,#00629B); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-3.jpg to replace -->
-          <img src="assets/gallery-3.jpg" alt="Team huddled around a laptop during the hackathon" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><path d="M50 20l30 17v26l-30 17-30-17V37z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
+          <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?w=600&q=80&fit=crop&h=600" alt="Team huddled around a laptop during the hackathon" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
         <a href="#" style="position:relative; background:linear-gradient(135deg,#00A99D,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-4.jpg to replace -->
-          <img src="assets/gallery-4.jpg" alt="Camper smiling while demoing her project to a judge" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><circle cx="50" cy="38" r="16" fill="#fff"/><path d="M24 86c0-16 12-26 26-26s26 10 26 26" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+          <img src="https://images.unsplash.com/photo-1504384308090-c5029b9f1cf5?w=600&q=80&fit=crop&h=600" alt="Camper smiling while demoing her project to a judge" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
         <a href="#" style="position:relative; background:linear-gradient(135deg,#003C64,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-5.jpg to replace -->
-          <img src="assets/gallery-5.jpg" alt="Close-up of a finished biomedical sensor prototype" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><rect x="22" y="34" width="56" height="38" rx="6" fill="none" stroke="#fff" stroke-width="5"/><circle cx="50" cy="53" r="10" fill="#FF6E5E"/><path d="M36 34v-8a14 14 0 0128 0v8" stroke="#fff" stroke-width="5" fill="none"/></svg>
+          <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=600&q=80&fit=crop&h=600" alt="Close-up of a finished biomedical sensor prototype" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
         <a href="#" style="position:relative; background:linear-gradient(135deg,#00629B,#FFB199); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <!-- Drop assets/gallery-6.jpg to replace -->
-          <img src="assets/gallery-6.jpg" alt="Families and judges walking the exhibition floor" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-          <svg viewBox="0 0 100 100" width="55%"><path d="M50 18 L80 35 V65 L50 82 L20 65 V35 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M38 50 L46 58 L64 40" stroke="#FF6E5E" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop&h=600" alt="Families and judges walking the exhibition floor" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
         </a>
       </div>
     </div>
@@ -631,9 +602,7 @@
       <div class="mentor-grid">
         <div class="mentor-card reveal">
           <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#BFE7E2,#00A99D); display:flex; align-items:center; justify-content:center;">
-            <!-- Drop assets/mentor-1.jpg to replace -->
-            <img src="assets/mentor-1.jpg" alt="Lead Mentor, Biomedical Track" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#003C64"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#003C64"/></svg>
+            <img src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?w=800&q=80&fit=crop&h=640" alt="Lead Mentor, Biomedical Track" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           </div>
           <div class="mentor-body">
             <div class="quote">"I want every camper to see a woman who builds this for a living, before she ever has to imagine it."</div>
@@ -642,9 +611,7 @@
         </div>
         <div class="mentor-card reveal">
           <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#9CC9E0,#00629B); display:flex; align-items:center; justify-content:center;">
-            <!-- Drop assets/mentor-2.jpg to replace -->
-            <img src="assets/mentor-2.jpg" alt="Facilitator, IEEE EMBS E-JUST SBC" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#FF6E5E"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#FF6E5E"/></svg>
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&q=80&fit=crop&h=640" alt="Facilitator, IEEE EMBS E-JUST SBC" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           </div>
           <div class="mentor-body">
             <div class="quote">"Compassion and engineering aren't opposites here — they're the same skill, pointed at the same problem."</div>
@@ -653,9 +620,7 @@
         </div>
         <div class="mentor-card reveal">
           <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#7FD3C4,#00897B); display:flex; align-items:center; justify-content:center;">
-            <!-- Drop assets/mentor-3.jpg to replace -->
-            <img src="assets/mentor-3.jpg" alt="Judge, Hackathon Exhibition" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
-            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#fff"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#fff"/></svg>
+            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80&fit=crop&h=640" alt="Judge, Hackathon Exhibition" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           </div>
           <div class="mentor-body">
             <div class="quote">"Watching a 9-year-old explain her own heart-rate circuit to a room of adults — that's the whole point."</div>
