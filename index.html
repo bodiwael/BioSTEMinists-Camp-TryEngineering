@@ -4,20 +4,21 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BioSTEMinists Camp — Empowering Young Women in Health Tech</title>
+<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
-    --ink:#1B1330;
-    --violet-deep:#3B1C5C;
-    --violet:#6B2F8C;
-    --magenta:#A8327C;
-    --coral:#FF6E5E;
-    --lavender:#EFE6FA;
-    --paper:#FBF8FF;
-    --cream:#FFF6EF;
-    --line:rgba(27,19,48,0.12);
-    --teal:#1E7A72;
+    --ink:#0B2438;
+    --violet-deep:#003C64;   /* IEEE EMBS deep blue */
+    --violet:#00629B;        /* IEEE blue */
+    --magenta:#00A99D;       /* EMBS teal */
+    --coral:#FF6E5E;         /* warm accent, used sparingly */
+    --lavender:#E3F1F4;
+    --paper:#F7FBFC;
+    --cream:#EFF8F7;
+    --line:rgba(11,36,56,0.12);
+    --teal:#00897B;
     --font-display:'Fraunces', serif;
     --font-body:'Manrope', sans-serif;
   }
@@ -38,7 +39,7 @@
   /* ---------- Nav ---------- */
   header.nav{
     position:sticky; top:0; z-index:50;
-    background:rgba(251,248,255,0.88);
+    background:rgba(247,251,252,0.88);
     backdrop-filter:blur(10px);
     border-bottom:1px solid var(--line);
   }
@@ -47,7 +48,8 @@
     display:flex; align-items:center; justify-content:space-between;
   }
   .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:-0.01em;}
-  .brand .mark{width:34px; height:34px; flex-shrink:0;}
+  .brand .mark{width:34px; height:34px; flex-shrink:0; transition:transform .35s ease;}
+  .brand:hover .mark{transform:rotate(-8deg) scale(1.08);}
   .nav-links{display:flex; gap:30px; font-size:14.5px; font-weight:600;}
   .nav-links a{position:relative; padding:4px 0; text-decoration:none; color:var(--ink);}
   .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);transition:width .25s ease;}
@@ -82,7 +84,7 @@
     font-family:var(--font-display); font-weight:600; font-size:clamp(38px,5.6vw,64px);
     line-height:1.04; letter-spacing:-0.02em; margin-bottom:22px;
   }
-  .hero h1 em{font-style:italic; font-weight:500; color:#FFD9CF;}
+  .hero h1 em{font-style:italic; font-weight:500; color:#BFE7E2;}
   .hero p.lede{font-size:18px; max-width:480px; color:rgba(255,255,255,0.86); margin-bottom:32px;}
   .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
   .btn{
@@ -108,8 +110,8 @@
   .pulse-wrap{position:relative; height:300px; width:100%;}
   .pulse-svg{width:100%; height:100%;}
   .pulse-line{
-    fill:none; stroke:#FF8C7F; stroke-width:3; stroke-linecap:round; stroke-linejoin:round;
-    filter:drop-shadow(0 0 10px rgba(255,140,127,0.5));
+    fill:none; stroke:#3FC8B8; stroke-width:3; stroke-linecap:round; stroke-linejoin:round;
+    filter:drop-shadow(0 0 10px rgba(63,200,184,0.5));
     stroke-dasharray:900; stroke-dashoffset:900;
     animation:draw 3.2s ease-out forwards, glide 4.5s ease-in-out 3.2s infinite;
   }
@@ -131,7 +133,7 @@
   .section-head{max-width:640px; margin-bottom:56px;}
   .kicker{font-size:13px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--magenta); margin-bottom:14px;}
   h2.title{font-family:var(--font-display); font-weight:600; font-size:clamp(30px,3.6vw,44px); letter-spacing:-0.015em; line-height:1.08; color:var(--violet-deep);}
-  .section-head p{margin-top:16px; font-size:17px; color:#54486B; max-width:560px;}
+  .section-head p{margin-top:16px; font-size:17px; color:#3E5A6B; max-width:560px;}
 
   /* ---------- announcement bar ---------- */
   .announce{background:var(--ink); color:#fff; font-size:13.5px; position:sticky; top:0; z-index:51;}
@@ -139,7 +141,7 @@
     max-width:1180px; margin:0 auto; padding:9px 32px;
     display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center;
   }
-  .announce-inner b{color:#FFB5A8;}
+  .announce-inner b{color:#9FE3D8;}
   .announce-inner a{color:#fff; text-decoration:underline; text-underline-offset:3px; font-weight:600; white-space:nowrap;}
   .announce-pulse{width:8px; height:8px; border-radius:50%; background:#5BE39D; flex-shrink:0; animation:pulseDot 1.6s infinite;}
   @media (max-width:640px){ .announce-inner{padding:9px 16px; font-size:12.5px;} }
@@ -187,7 +189,7 @@
   .m-card:hover{transform:translateY(-4px); box-shadow:0 18px 36px rgba(59,28,92,0.1);}
   .m-card .num{font-family:var(--font-display); font-size:14px; color:var(--coral); font-weight:700; margin-bottom:14px;}
   .m-card h3{font-family:var(--font-display); font-size:21px; font-weight:600; margin-bottom:10px; color:var(--violet-deep);}
-  .m-card p{font-size:15px; color:#54486B;}
+  .m-card p{font-size:15px; color:#3E5A6B;}
 
   /* ---------- tracks ---------- */
   .tracks{background:var(--paper);}
@@ -219,7 +221,7 @@
   /* ---------- schedule ---------- */
   .schedule{background:var(--violet-deep); color:#fff; position:relative; overflow:hidden;}
   .schedule .section-head h2, .schedule .kicker{color:#fff;}
-  .schedule .kicker{color:#FFB5A8;}
+  .schedule .kicker{color:#9FE3D8;}
   .schedule .section-head p{color:rgba(255,255,255,0.75);}
   .day-rail{position:relative; padding-left:36px;}
   .day-rail::before{content:''; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,0.18);}
@@ -231,13 +233,13 @@
     transition:transform .2s ease;
   }
   .day-item:hover::before{transform:scale(1.25);}
-  .day-item .d-label{font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#FFB5A8; margin-bottom:6px;}
+  .day-item .d-label{font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#9FE3D8; margin-bottom:6px;}
   .day-item h4{font-family:var(--font-display); font-size:22px; font-weight:600; margin-bottom:10px;}
   .day-cols{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
   @media (max-width:640px){ .day-cols{grid-template-columns:1fr;} }
   .day-cols div{background:rgba(255,255,255,0.08); border-radius:14px; padding:16px 18px; font-size:14.5px; transition:background .2s ease;}
   .day-item:hover .day-cols div{background:rgba(255,255,255,0.14);}
-  .day-cols div b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#FFB5A8; margin-bottom:6px;}
+  .day-cols div b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#9FE3D8; margin-bottom:6px;}
 
   /* ---------- gallery / exhibition ---------- */
   .gallery{background:var(--lavender);}
@@ -255,7 +257,7 @@
     border:1px solid var(--line); border-radius:18px; padding:26px 22px; background:#fff;
   }
   .impact-card .big{font-family:var(--font-display); font-size:38px; font-weight:600; color:var(--coral);}
-  .impact-card .lbl{font-size:14px; color:#54486B; margin-top:6px; font-weight:600;}
+  .impact-card .lbl{font-size:14px; color:#3E5A6B; margin-top:6px; font-weight:600;}
 
   /* ---------- mentors / quotes ---------- */
   .mentors{background:var(--cream);}
@@ -265,12 +267,14 @@
   .mentor-card img{width:100%; aspect-ratio:4/3.2; object-fit:cover;}
   .mentor-body{padding:22px 24px;}
   .mentor-body .quote{font-family:var(--font-display); font-style:italic; font-size:17px; color:var(--violet-deep); margin-bottom:14px; line-height:1.4;}
-  .mentor-body .who{font-size:13.5px; font-weight:700; color:#54486B;}
+  .mentor-body .who{font-size:13.5px; font-weight:700; color:#3E5A6B;}
 
   /* ---------- partners ---------- */
   .partners{background:var(--paper); text-align:center;}
-  .partner-row{display:flex; justify-content:center; gap:50px; flex-wrap:wrap; margin-top:40px; opacity:0.75;}
-  .partner-row span{font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--violet);}
+  .partner-row{display:flex; justify-content:center; gap:50px; flex-wrap:wrap; margin-top:40px;}
+  .partner-row span{display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--violet); opacity:0.75; transition:opacity .2s ease, transform .2s ease;}
+  .partner-row span:hover{opacity:1; transform:translateY(-2px);}
+  .partner-row span img{width:22px; height:22px; border-radius:6px;}
 
   /* ---------- registration audience tabs ---------- */
   .reg-zone{background:var(--lavender);}
@@ -286,7 +290,7 @@
   .reg-panel.active{display:grid;}
   @media (max-width:760px){ .reg-panel.active{grid-template-columns:1fr;} }
   .reg-panel h3{font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--violet-deep); margin-bottom:12px;}
-  .reg-panel p{font-size:15.5px; color:#54486B; margin-bottom:20px;}
+  .reg-panel p{font-size:15.5px; color:#3E5A6B; margin-bottom:20px;}
   .reg-panel ul{list-style:none; display:grid; gap:10px; margin-bottom:24px;}
   .reg-panel ul li{display:flex; gap:10px; font-size:14.5px; color:#3B2E55;}
   .reg-panel ul li::before{content:'✓'; color:var(--teal); font-weight:800;}
@@ -337,10 +341,7 @@
 <header class="nav">
   <div class="nav-inner">
     <a class="brand" href="#top">
-      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <rect width="40" height="40" rx="10" fill="#3B1C5C"/>
-        <path d="M6 21h5l2.5-7 4 14 3-10 2 3h11.5" stroke="#FF6E5E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-      </svg>
+      <img class="mark" src="assets/logo.svg" alt="IEEE EMBS E-JUST SBC logo" width="34" height="34" loading="eager">
       BioSTEMinists
     </a>
     <nav class="nav-links">
@@ -396,24 +397,24 @@
           </g>
           <!-- Scene 2: circuit board -->
           <g class="scene" id="scene2" style="opacity:0;">
-            <rect x="130" y="100" width="160" height="100" rx="10" fill="none" stroke="#FF8C7F" stroke-width="3"/>
-            <circle cx="160" cy="130" r="8" fill="#FF8C7F"/>
-            <circle cx="260" cy="130" r="8" fill="#FF8C7F"/>
-            <circle cx="160" cy="170" r="8" fill="#FF8C7F"/>
-            <circle cx="260" cy="170" r="8" fill="#FF8C7F"/>
-            <path d="M160 130 L160 170 M260 130 L260 170 M160 150 L260 150" stroke="#FFD9CF" stroke-width="2"/>
+            <rect x="130" y="100" width="160" height="100" rx="10" fill="none" stroke="#3FC8B8" stroke-width="3"/>
+            <circle cx="160" cy="130" r="8" fill="#3FC8B8"/>
+            <circle cx="260" cy="130" r="8" fill="#3FC8B8"/>
+            <circle cx="160" cy="170" r="8" fill="#3FC8B8"/>
+            <circle cx="260" cy="170" r="8" fill="#3FC8B8"/>
+            <path d="M160 130 L160 170 M260 130 L260 170 M160 150 L260 150" stroke="#BFE7E2" stroke-width="2"/>
           </g>
           <!-- Scene 3: hackathon exhibit -->
           <g class="scene" id="scene3" style="opacity:0;">
-            <circle cx="160" cy="150" r="34" fill="#FF8C7F"/>
-            <circle cx="260" cy="150" r="34" fill="#A8327C"/>
+            <circle cx="160" cy="150" r="34" fill="#3FC8B8"/>
+            <circle cx="260" cy="150" r="34" fill="#00A99D"/>
             <path d="M194 150h32" stroke="#fff" stroke-width="3" stroke-dasharray="4 6"/>
             <text x="210" y="220" text-anchor="middle" fill="#fff" font-size="14" font-family="Manrope, sans-serif" font-weight="700">Presenting to judges</text>
           </g>
         </svg>
         <div class="vs-play">
           <div class="vs-play-btn" id="playBtn">
-            <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="#3B1C5C"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="#003C64"><path d="M8 5v14l11-7z"/></svg>
           </div>
         </div>
         <div class="vs-caption"><span class="liveDot"></span> A day inside the camp</div>
@@ -464,13 +465,13 @@
       </div>
 
       <div class="track-panel active" id="junior">
-        <div class="track-img" style="background:linear-gradient(135deg,#FFD9CF,#F4C6E8); display:flex; align-items:center; justify-content:center;">
+        <div class="track-img" style="background:linear-gradient(135deg,#BFE7E2,#9FD6CF); display:flex; align-items:center; justify-content:center;">
           <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
             <circle cx="150" cy="100" r="60" fill="#FF6E5E"/>
-            <circle cx="150" cy="80" r="26" fill="#3B1C5C"/>
-            <rect x="100" y="140" width="100" height="70" rx="14" fill="#6B2F8C"/>
-            <path d="M40 190 L90 190 L100 160 L116 220 L130 190 L260 190" stroke="#1B1330" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <circle cx="116" cy="220" r="6" fill="#1B1330"/>
+            <circle cx="150" cy="80" r="26" fill="#003C64"/>
+            <rect x="100" y="140" width="100" height="70" rx="14" fill="#00629B"/>
+            <path d="M40 190 L90 190 L100 160 L116 220 L130 190 L260 190" stroke="#0B2438" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="116" cy="220" r="6" fill="#0B2438"/>
           </svg>
           <span class="age-pill">Ages 5–12</span>
         </div>
@@ -488,14 +489,14 @@
       </div>
 
       <div class="track-panel" id="young">
-        <div class="track-img" style="background:linear-gradient(135deg,#D9C7F0,#FFC2B8); display:flex; align-items:center; justify-content:center;">
+        <div class="track-img" style="background:linear-gradient(135deg,#9CC9E0,#7FD3C4); display:flex; align-items:center; justify-content:center;">
           <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
-            <rect x="60" y="50" width="180" height="120" rx="10" fill="#3B1C5C"/>
-            <rect x="75" y="64" width="150" height="80" rx="4" fill="#1B1330"/>
+            <rect x="60" y="50" width="180" height="120" rx="10" fill="#003C64"/>
+            <rect x="75" y="64" width="150" height="80" rx="4" fill="#0B2438"/>
             <path d="M85 110 L110 110 L120 90 L132 130 L142 100 L215 100" stroke="#FF6E5E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-            <rect x="120" y="170" width="60" height="14" rx="4" fill="#6B2F8C"/>
+            <rect x="120" y="170" width="60" height="14" rx="4" fill="#00629B"/>
             <circle cx="230" cy="190" r="22" fill="#FF6E5E"/>
-            <path d="M222 190 l6 6 12 -14" stroke="#1B1330" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M222 190 l6 6 12 -14" stroke="#0B2438" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
           </svg>
           <span class="age-pill">Ages 12–18</span>
         </div>
@@ -576,17 +577,23 @@
         <p>Teams present working prototypes to judges, healthcare professionals, and families — then walk the floor at a public health-tech fair.</p>
       </div>
       <div class="gal-grid">
-        <a href="#" style="background:linear-gradient(135deg,#FF6E5E,#A8327C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="background:linear-gradient(135deg,#FF6E5E,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
           <svg viewBox="0 0 100 100" width="55%"><path d="M10 60h16l9-26 14 46 11-32 7 12h33" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#6B2F8C,#3B1C5C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
-          <svg viewBox="0 0 100 100" width="55%"><rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#FFD9CF" stroke-width="5"/><circle cx="50" cy="50" r="14" fill="#FF6E5E"/></svg>
+        <a href="#" style="background:linear-gradient(135deg,#00629B,#003C64); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#BFE7E2" stroke-width="5"/><circle cx="50" cy="50" r="14" fill="#FF6E5E"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#1E7A72,#6B2F8C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="background:linear-gradient(135deg,#00897B,#00629B); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
           <svg viewBox="0 0 100 100" width="55%"><path d="M50 20l30 17v26l-30 17-30-17V37z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#A8327C,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="background:linear-gradient(135deg,#00A99D,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
           <svg viewBox="0 0 100 100" width="55%"><circle cx="50" cy="38" r="16" fill="#fff"/><path d="M24 86c0-16 12-26 26-26s26 10 26 26" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        </a>
+        <a href="#" style="background:linear-gradient(135deg,#003C64,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><rect x="22" y="34" width="56" height="38" rx="6" fill="none" stroke="#fff" stroke-width="5"/><circle cx="50" cy="53" r="10" fill="#FF6E5E"/><path d="M36 34v-8a14 14 0 0128 0v8" stroke="#fff" stroke-width="5" fill="none"/></svg>
+        </a>
+        <a href="#" style="background:linear-gradient(135deg,#00629B,#FFB199); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><path d="M50 18 L80 35 V65 L50 82 L20 65 V35 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M38 50 L46 58 L64 40" stroke="#FF6E5E" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
     </div>
@@ -618,8 +625,8 @@
       </div>
       <div class="mentor-grid">
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#FFD9CF,#A8327C); display:flex; align-items:center; justify-content:center;">
-            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#3B1C5C"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#3B1C5C"/></svg>
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#BFE7E2,#00A99D); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#003C64"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#003C64"/></svg>
           </div>
           <div class="mentor-body">
             <div class="quote">"I want every camper to see a woman who builds this for a living, before she ever has to imagine it."</div>
@@ -627,7 +634,7 @@
           </div>
         </div>
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#D9C7F0,#6B2F8C); display:flex; align-items:center; justify-content:center;">
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#9CC9E0,#00629B); display:flex; align-items:center; justify-content:center;">
             <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#FF6E5E"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#FF6E5E"/></svg>
           </div>
           <div class="mentor-body">
@@ -636,7 +643,7 @@
           </div>
         </div>
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#FFC2B8,#1E7A72); display:flex; align-items:center; justify-content:center;">
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#7FD3C4,#00897B); display:flex; align-items:center; justify-content:center;">
             <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#fff"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#fff"/></svg>
           </div>
           <div class="mentor-body">
@@ -654,7 +661,7 @@
       <div class="kicker">In partnership with</div>
       <h2 class="title">IEEE EMBS E-JUST SBC &amp; IEEE Women in Engineering</h2>
       <div class="partner-row">
-        <span>IEEE EMBS</span>
+        <span><img src="assets/logo.svg" alt="" width="22" height="22" loading="lazy">IEEE EMBS</span>
         <span>IEEE WIE</span>
         <span>E-JUST</span>
         <span>IEEE TryEngineering</span>
@@ -776,10 +783,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <rect width="40" height="40" rx="10" fill="#FF6E5E"/>
-            <path d="M6 21h5l2.5-7 4 14 3-10 2 3h11.5" stroke="#1B1330" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-          </svg>
+          <img class="mark" src="assets/logo.svg" alt="IEEE EMBS E-JUST SBC logo" width="30" height="30" loading="lazy">
           BioSTEMinists Camp
         </div>
         <p style="max-width:280px; font-size:14.5px;">Empowering young women ages 5–18 to build the future of health technology, one sensor at a time. Organized by IEEE EMBS E-JUST SBC.</p>
