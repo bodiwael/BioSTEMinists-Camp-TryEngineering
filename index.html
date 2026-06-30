@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>BioSTEMinists Camp — Empowering Young Women in Health Tech</title>
-<link rel="icon" type="image/svg+xml" href="assets/logo.svg">
+<link rel="icon" type="image/jpeg" href="assets/favicon.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
@@ -50,6 +50,8 @@
   .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:-0.01em;}
   .brand .mark{width:34px; height:34px; flex-shrink:0; transition:transform .35s ease;}
   .brand:hover .mark{transform:rotate(-8deg) scale(1.08);}
+  .brand-logo .mark{width:auto; height:44px; border-radius:8px; transition:transform .35s ease;}
+  .brand-logo:hover .mark{transform:scale(1.04);}
   .nav-links{display:flex; gap:30px; font-size:14.5px; font-weight:600;}
   .nav-links a{position:relative; padding:4px 0; text-decoration:none; color:var(--ink);}
   .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);transition:width .25s ease;}
@@ -317,7 +319,7 @@
   .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.12);}
   @media (max-width:800px){ .foot-grid{grid-template-columns:1fr 1fr;} }
   .foot-brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:19px; color:#fff; margin-bottom:14px;}
-  .foot-brand .mark{width:30px; height:30px;}
+  .foot-brand .mark{width:auto; height:40px; border-radius:6px;}
   footer h5{color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;}
   footer ul{list-style:none; display:grid; gap:10px; font-size:14.5px;}
   footer a{text-decoration:none;}
@@ -340,9 +342,8 @@
 </div>
 <header class="nav">
   <div class="nav-inner">
-    <a class="brand" href="#top">
-      <img class="mark" src="assets/logo.svg" alt="IEEE EMBS E-JUST SBC logo" width="34" height="34" loading="eager">
-      BioSTEMinists
+    <a class="brand brand-logo" href="#top">
+      <img class="mark" src="assets/logo.jpg" alt="BioSTEMinists Camp — IEEE EMBS E-JUST SBC logo" width="164" height="60" loading="eager">
     </a>
     <nav class="nav-links">
       <a href="#mission">Mission</a>
@@ -361,7 +362,7 @@
   <section class="hero">
     <div class="hero-inner">
       <div>
-        <div class="eyebrow"><span class="dot"></span> 5-Day Camp · IEEE EMBS E-JUST SBC</div>
+        <div class="eyebrow"><span class="dot"></span> 3-Day Camp · IEEE EMBS E-JUST SBC</div>
         <h1>Where a <em>heartbeat</em><br>becomes code.</h1>
         <p class="lede">A hands-on biomedical engineering camp for girls ages 5–18 — building sensors, AI, and IoT health tech, then exhibiting it at a hackathon for their community. Registration is open now — camp runs in late August 2026.</p>
         <div class="hero-actions">
@@ -372,7 +373,7 @@
         <div class="hero-stats">
           <div>40<span>Girls, ages 5–18</span></div>
           <div>8<span>Women engineer mentors</span></div>
-          <div>5<span>Days, one hackathon</span></div>
+          <div>3<span>Days, one hackathon</span></div>
         </div>
         <div class="hero-org">
           Organized by
@@ -457,7 +458,7 @@
       <div class="section-head reveal">
         <div class="kicker">Two tracks, one mission</div>
         <h2 class="title">Built for where each camper is starting from.</h2>
-        <p>Age-appropriate, but never watered down — both tracks ship a real, working biomedical project by Day 5.</p>
+        <p>Age-appropriate, but never watered down — both tracks ship a real, working biomedical project by Day 3.</p>
       </div>
       <div class="track-tabs reveal">
         <button class="tab-btn active" data-tab="junior">Junior Innovators · 5–12</button>
@@ -466,6 +467,10 @@
 
       <div class="track-panel active" id="junior">
         <div class="track-img" style="background:linear-gradient(135deg,#BFE7E2,#9FD6CF); display:flex; align-items:center; justify-content:center;">
+          <!-- Drop a real photo at assets/track-junior.jpg (4:3.4 landscape) to replace this placeholder automatically -->
+          <img src="assets/track-junior.jpg" alt="Junior Innovators building a heart-rate sensor circuit" loading="lazy"
+               style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+               onerror="this.style.display='none'">
           <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
             <circle cx="150" cy="100" r="60" fill="#FF6E5E"/>
             <circle cx="150" cy="80" r="26" fill="#003C64"/>
@@ -483,13 +488,17 @@
             <li>Smart health guardians with temperature alert sensors</li>
             <li>Computer vision image-sorting activities</li>
             <li>VR health education with Google Cardboard</li>
-            <li>Mini hackathon &amp; interactive health tech fair on Day 5</li>
+            <li>Mini hackathon &amp; interactive health tech fair on Day 3</li>
           </ul>
         </div>
       </div>
 
       <div class="track-panel" id="young">
         <div class="track-img" style="background:linear-gradient(135deg,#9CC9E0,#7FD3C4); display:flex; align-items:center; justify-content:center;">
+          <!-- Drop a real photo at assets/track-young.jpg (4:3.4 landscape) to replace this placeholder automatically -->
+          <img src="assets/track-young.jpg" alt="Young Researchers analyzing ECG data on a laptop" loading="lazy"
+               style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"
+               onerror="this.style.display='none'">
           <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
             <rect x="60" y="50" width="180" height="120" rx="10" fill="#003C64"/>
             <rect x="75" y="64" width="150" height="80" rx="4" fill="#0B2438"/>
@@ -519,45 +528,29 @@
   <section class="schedule" id="schedule">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="kicker">Five days, one arc</div>
+        <div class="kicker">Three days, one arc</div>
         <h2 class="title">Each day builds on the last.</h2>
         <p>Mornings are technical sessions; afternoons are hands-on build time — culminating in a public hackathon exhibition.</p>
       </div>
       <div class="day-rail">
         <div class="day-item reveal">
-          <div class="d-label">Day 1 — Monday</div>
-          <h4>Biosignals &amp; Sensors Foundation</h4>
+          <div class="d-label">Day 1 — Friday</div>
+          <h4>Biosignals, Sensors &amp; Connected Healthcare</h4>
           <div class="day-cols">
-            <div><b>Junior</b>Heart rate monitors with LED feedback</div>
-            <div><b>Young Researchers</b>EEG / EMG signal processing basics</div>
+            <div><b>Junior</b>Heart rate monitors with LED feedback &amp; smart health guardian sensors</div>
+            <div><b>Young Researchers</b>EEG / EMG signal processing &amp; ECG monitoring with cloud connectivity</div>
           </div>
         </div>
         <div class="day-item reveal">
-          <div class="d-label">Day 2 — Tuesday</div>
-          <h4>IoT &amp; Connected Healthcare</h4>
+          <div class="d-label">Day 2 — Saturday</div>
+          <h4>AI, Computer Vision &amp; VR/AR Medical Applications</h4>
           <div class="day-cols">
-            <div><b>Junior</b>Smart health guardian, temperature alerts</div>
-            <div><b>Young Researchers</b>ECG monitoring with cloud connectivity</div>
+            <div><b>Junior</b>Health image sorting with Scratch &amp; Arduino, VR health education</div>
+            <div><b>Young Researchers</b>Pneumonia detection with CNNs, VR rehabilitation simulations</div>
           </div>
         </div>
         <div class="day-item reveal">
-          <div class="d-label">Day 3 — Wednesday</div>
-          <h4>AI &amp; Computer Vision</h4>
-          <div class="day-cols">
-            <div><b>Junior</b>Health image sorting with Scratch &amp; Arduino</div>
-            <div><b>Young Researchers</b>Pneumonia detection using CNN models</div>
-          </div>
-        </div>
-        <div class="day-item reveal">
-          <div class="d-label">Day 4 — Thursday</div>
-          <h4>VR / AR Medical Applications</h4>
-          <div class="day-cols">
-            <div><b>Junior</b>VR health education experiences</div>
-            <div><b>Young Researchers</b>VR rehabilitation &amp; training simulations</div>
-          </div>
-        </div>
-        <div class="day-item reveal">
-          <div class="d-label">Day 5 — Friday</div>
+          <div class="d-label">Day 3 — Sunday</div>
           <h4>Hackathon &amp; Exhibition</h4>
           <div class="day-cols">
             <div><b>1–2pm</b>Team presentations to judges</div>
@@ -572,27 +565,39 @@
   <section class="gallery" id="gallery">
     <div class="wrap">
       <div class="section-head reveal">
-        <div class="kicker">Day 5 in action</div>
+        <div class="kicker">Day 3 in action</div>
         <h2 class="title">The hackathon exhibition.</h2>
         <p>Teams present working prototypes to judges, healthcare professionals, and families — then walk the floor at a public health-tech fair.</p>
       </div>
       <div class="gal-grid">
-        <a href="#" style="background:linear-gradient(135deg,#FF6E5E,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#FF6E5E,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-1.jpg to replace -->
+          <img src="assets/gallery-1.jpg" alt="Camper presenting a biosignal project" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><path d="M10 60h16l9-26 14 46 11-32 7 12h33" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#00629B,#003C64); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#00629B,#003C64); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-2.jpg to replace -->
+          <img src="assets/gallery-2.jpg" alt="Mentor guiding campers through a circuit build" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#BFE7E2" stroke-width="5"/><circle cx="50" cy="50" r="14" fill="#FF6E5E"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#00897B,#00629B); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#00897B,#00629B); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-3.jpg to replace -->
+          <img src="assets/gallery-3.jpg" alt="Team huddled around a laptop during the hackathon" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><path d="M50 20l30 17v26l-30 17-30-17V37z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#00A99D,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#00A99D,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-4.jpg to replace -->
+          <img src="assets/gallery-4.jpg" alt="Camper smiling while demoing her project to a judge" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><circle cx="50" cy="38" r="16" fill="#fff"/><path d="M24 86c0-16 12-26 26-26s26 10 26 26" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#003C64,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#003C64,#00A99D); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-5.jpg to replace -->
+          <img src="assets/gallery-5.jpg" alt="Close-up of a finished biomedical sensor prototype" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><rect x="22" y="34" width="56" height="38" rx="6" fill="none" stroke="#fff" stroke-width="5"/><circle cx="50" cy="53" r="10" fill="#FF6E5E"/><path d="M36 34v-8a14 14 0 0128 0v8" stroke="#fff" stroke-width="5" fill="none"/></svg>
         </a>
-        <a href="#" style="background:linear-gradient(135deg,#00629B,#FFB199); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+        <a href="#" style="position:relative; background:linear-gradient(135deg,#00629B,#FFB199); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <!-- Drop assets/gallery-6.jpg to replace -->
+          <img src="assets/gallery-6.jpg" alt="Families and judges walking the exhibition floor" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
           <svg viewBox="0 0 100 100" width="55%"><path d="M50 18 L80 35 V65 L50 82 L20 65 V35 Z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/><path d="M38 50 L46 58 L64 40" stroke="#FF6E5E" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </a>
       </div>
@@ -625,7 +630,9 @@
       </div>
       <div class="mentor-grid">
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#BFE7E2,#00A99D); display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#BFE7E2,#00A99D); display:flex; align-items:center; justify-content:center;">
+            <!-- Drop assets/mentor-1.jpg to replace -->
+            <img src="assets/mentor-1.jpg" alt="Lead Mentor, Biomedical Track" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
             <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#003C64"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#003C64"/></svg>
           </div>
           <div class="mentor-body">
@@ -634,7 +641,9 @@
           </div>
         </div>
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#9CC9E0,#00629B); display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#9CC9E0,#00629B); display:flex; align-items:center; justify-content:center;">
+            <!-- Drop assets/mentor-2.jpg to replace -->
+            <img src="assets/mentor-2.jpg" alt="Facilitator, IEEE EMBS E-JUST SBC" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
             <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#FF6E5E"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#FF6E5E"/></svg>
           </div>
           <div class="mentor-body">
@@ -643,7 +652,9 @@
           </div>
         </div>
         <div class="mentor-card reveal">
-          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#7FD3C4,#00897B); display:flex; align-items:center; justify-content:center;">
+          <div style="position:relative; width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#7FD3C4,#00897B); display:flex; align-items:center; justify-content:center;">
+            <!-- Drop assets/mentor-3.jpg to replace -->
+            <img src="assets/mentor-3.jpg" alt="Judge, Hackathon Exhibition" loading="lazy" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;" onerror="this.style.display='none'">
             <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#fff"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#fff"/></svg>
           </div>
           <div class="mentor-body">
@@ -661,7 +672,7 @@
       <div class="kicker">In partnership with</div>
       <h2 class="title">IEEE EMBS E-JUST SBC &amp; IEEE Women in Engineering</h2>
       <div class="partner-row">
-        <span><img src="assets/logo.svg" alt="" width="22" height="22" loading="lazy">IEEE EMBS</span>
+        <span><img src="assets/favicon.jpg" alt="" width="22" height="22" loading="lazy">IEEE EMBS</span>
         <span>IEEE WIE</span>
         <span>E-JUST</span>
         <span>IEEE TryEngineering</span>
@@ -690,7 +701,7 @@
           <h3>Register your camper</h3>
           <p>Reserve one of 40 seats for a girl ages 5–18. Scholarships cover 50% of seats, so cost is never a barrier.</p>
           <ul>
-            <li>5-day program, 9am–4pm, late August 2026</li>
+            <li>3-day program, 9am–4pm, late August 2026</li>
             <li>No prior coding or electronics experience needed</li>
             <li>Ends with a hackathon demo in front of family &amp; judges</li>
           </ul>
@@ -728,7 +739,7 @@
           <ul>
             <li>Biomedical, AI, IoT, and VR/AR backgrounds welcome</li>
             <li>Paid &amp; volunteer mentor tracks available</li>
-            <li>Judge or guest-speak at the Day 5 hackathon</li>
+            <li>Judge or guest-speak at the Day 3 hackathon</li>
           </ul>
           <a href="mailto:abdelrahman.wael@ieee.org?subject=Mentor%20Application%20-%20BioSTEMinists" class="btn btn-primary">Apply to mentor →</a>
         </div>
@@ -745,7 +756,7 @@
           <p>IEEE EMBS E-JUST SBC works with sponsors, hospitals, and community organizations to fund scholarships and host the exhibition.</p>
           <ul>
             <li>Sponsor scholarship seats or program materials</li>
-            <li>Host the Day 5 exhibition or provide judges</li>
+            <li>Host the Day 3 exhibition or provide judges</li>
             <li>Co-brand outreach with IEEE EMBS &amp; IEEE WIE</li>
           </ul>
           <a href="mailto:abdelrahman.wael@ieee.org?subject=Community%20Partnership%20-%20BioSTEMinists" class="btn btn-primary">Become a partner →</a>
@@ -771,7 +782,7 @@
       </div>
       <div class="cta-meta">
         <span>📍 Schools across Egypt</span>
-        <span>🗓️ 5-day program, late August 2026, 9am–4pm</span>
+        <span>🗓️ 3-day program, late August 2026, 9am–4pm</span>
         <span>💜 IEEE EMBS E-JUST SBC</span>
       </div>
     </div>
@@ -783,8 +794,7 @@
     <div class="foot-grid">
       <div>
         <div class="foot-brand">
-          <img class="mark" src="assets/logo.svg" alt="IEEE EMBS E-JUST SBC logo" width="30" height="30" loading="lazy">
-          BioSTEMinists Camp
+          <img class="mark" src="assets/logo.jpg" alt="BioSTEMinists Camp — IEEE EMBS E-JUST SBC logo" width="140" height="51" loading="lazy">
         </div>
         <p style="max-width:280px; font-size:14.5px;">Empowering young women ages 5–18 to build the future of health technology, one sensor at a time. Organized by IEEE EMBS E-JUST SBC.</p>
       </div>
