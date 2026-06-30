@@ -1,1 +1,901 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BioSTEMinists Camp — Empowering Young Women in Health Tech</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#1B1330;
+    --violet-deep:#3B1C5C;
+    --violet:#6B2F8C;
+    --magenta:#A8327C;
+    --coral:#FF6E5E;
+    --lavender:#EFE6FA;
+    --paper:#FBF8FF;
+    --cream:#FFF6EF;
+    --line:rgba(27,19,48,0.12);
+    --teal:#1E7A72;
+    --font-display:'Fraunces', serif;
+    --font-body:'Manrope', sans-serif;
+  }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:var(--font-body);
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+    overflow-x:hidden;
+  }
+  a{color:inherit;}
+  img{max-width:100%; display:block;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 32px;}
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
 
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(251,248,255,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1180px; margin:0 auto; padding:16px 32px;
+    display:flex; align-items:center; justify-content:space-between;
+  }
+  .brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:20px; letter-spacing:-0.01em;}
+  .brand .mark{width:34px; height:34px; flex-shrink:0;}
+  .nav-links{display:flex; gap:30px; font-size:14.5px; font-weight:600;}
+  .nav-links a{position:relative; padding:4px 0; text-decoration:none; color:var(--ink);}
+  .nav-links a::after{content:'';position:absolute;left:0;bottom:-2px;width:0;height:2px;background:var(--coral);transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--violet-deep); color:#fff; padding:10px 20px; border-radius:99px;
+    font-weight:700; font-size:14px; text-decoration:none; white-space:nowrap;
+  }
+  @media (max-width:840px){ .nav-links{display:none;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    background:linear-gradient(180deg, var(--violet-deep) 0%, var(--violet) 62%, var(--magenta) 100%);
+    color:#fff;
+    padding:88px 0 0;
+    overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1180px; margin:0 auto; padding:0 32px 60px;
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  @media (max-width:900px){ .hero-inner{grid-template-columns:1fr; padding-bottom:40px;} }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:13px; font-weight:700; letter-spacing:0.06em; text-transform:uppercase;
+    background:rgba(255,255,255,0.14); padding:7px 14px; border-radius:99px; margin-bottom:22px;
+  }
+  .eyebrow .dot{width:7px; height:7px; border-radius:50%; background:var(--coral); animation:pulseDot 1.6s infinite;}
+  @keyframes pulseDot{0%,100%{opacity:1; transform:scale(1);} 50%{opacity:.4; transform:scale(0.7);}}
+  .hero h1{
+    font-family:var(--font-display); font-weight:600; font-size:clamp(38px,5.6vw,64px);
+    line-height:1.04; letter-spacing:-0.02em; margin-bottom:22px;
+  }
+  .hero h1 em{font-style:italic; font-weight:500; color:#FFD9CF;}
+  .hero p.lede{font-size:18px; max-width:480px; color:rgba(255,255,255,0.86); margin-bottom:32px;}
+  .hero-actions{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:14px 26px; border-radius:99px; font-weight:700; font-size:15px;
+    text-decoration:none; border:1.5px solid transparent; cursor:pointer; transition:transform .2s ease, background .2s ease;
+  }
+  .btn-primary{background:var(--coral); color:var(--ink);}
+  .btn-primary:hover{transform:translateY(-2px); background:#ff8273;}
+  .btn-ghost{border-color:rgba(255,255,255,0.5); color:#fff;}
+  .btn-ghost:hover{background:rgba(255,255,255,0.12); transform:translateY(-2px);}
+  .btn-text{background:none; color:#fff; padding:14px 6px; text-decoration:underline; text-underline-offset:4px;}
+  .hero-stats{display:flex; gap:28px; margin-top:44px; flex-wrap:wrap;}
+  .hero-stats div{font-family:var(--font-display); font-size:30px; font-weight:600;}
+  .hero-stats span{display:block; font-family:var(--font-body); font-size:12.5px; font-weight:600; color:rgba(255,255,255,0.7); text-transform:uppercase; letter-spacing:0.05em; margin-top:2px;}
+  .hero-org{display:flex; align-items:center; gap:10px; margin-top:30px; font-size:13px; color:rgba(255,255,255,0.75); font-weight:600;}
+  .hero-org .org-badge{
+    display:inline-flex; align-items:center; gap:6px; background:rgba(255,255,255,0.1);
+    border:1px solid rgba(255,255,255,0.22); padding:6px 12px; border-radius:99px; color:#fff;
+  }
+
+  /* signature pulse-line */
+  .pulse-wrap{position:relative; height:300px; width:100%;}
+  .pulse-svg{width:100%; height:100%;}
+  .pulse-line{
+    fill:none; stroke:#FF8C7F; stroke-width:3; stroke-linecap:round; stroke-linejoin:round;
+    filter:drop-shadow(0 0 10px rgba(255,140,127,0.5));
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 3.2s ease-out forwards, glide 4.5s ease-in-out 3.2s infinite;
+  }
+  @keyframes draw{to{stroke-dashoffset:0;}}
+  @keyframes glide{0%,100%{stroke-dashoffset:0;} 50%{stroke-dashoffset:-60;}}
+  .pulse-dot{fill:#fff;}
+  .orbit-badge{
+    position:absolute; background:#fff; color:var(--violet-deep); border-radius:18px;
+    padding:12px 16px; font-weight:700; font-size:13px; box-shadow:0 14px 30px rgba(0,0,0,0.25);
+    display:flex; align-items:center; gap:8px;
+  }
+  .orbit-badge .ic{width:20px; height:20px;}
+  .badge-1{top:6%; right:2%;}
+  .badge-2{bottom:10%; left:0%;}
+
+  /* ---------- section basics ---------- */
+  section{padding:100px 0;}
+  @media (max-width:640px){ section{padding:64px 0;} }
+  .section-head{max-width:640px; margin-bottom:56px;}
+  .kicker{font-size:13px; font-weight:800; letter-spacing:0.08em; text-transform:uppercase; color:var(--magenta); margin-bottom:14px;}
+  h2.title{font-family:var(--font-display); font-weight:600; font-size:clamp(30px,3.6vw,44px); letter-spacing:-0.015em; line-height:1.08; color:var(--violet-deep);}
+  .section-head p{margin-top:16px; font-size:17px; color:#54486B; max-width:560px;}
+
+  /* ---------- announcement bar ---------- */
+  .announce{background:var(--ink); color:#fff; font-size:13.5px; position:sticky; top:0; z-index:51;}
+  .announce-inner{
+    max-width:1180px; margin:0 auto; padding:9px 32px;
+    display:flex; align-items:center; justify-content:center; gap:14px; flex-wrap:wrap; text-align:center;
+  }
+  .announce-inner b{color:#FFB5A8;}
+  .announce-inner a{color:#fff; text-decoration:underline; text-underline-offset:3px; font-weight:600; white-space:nowrap;}
+  .announce-pulse{width:8px; height:8px; border-radius:50%; background:#5BE39D; flex-shrink:0; animation:pulseDot 1.6s infinite;}
+  @media (max-width:640px){ .announce-inner{padding:9px 16px; font-size:12.5px;} }
+
+  header.nav{top:0;}
+  @media (min-width:1px){ .announce ~ header.nav{ top:0; } }
+
+  /* ---------- hero video ---------- */
+  .video-stage{
+    position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4/3.1;
+    background:linear-gradient(160deg,#2A1448,#5C2774);
+    cursor:pointer; box-shadow:0 30px 60px rgba(0,0,0,0.35);
+  }
+  .video-stage svg{width:100%; height:100%; display:block;}
+  .vs-play{
+    position:absolute; inset:0; display:flex; align-items:center; justify-content:center;
+    background:rgba(27,19,48,0.25); transition:background .25s ease;
+  }
+  .vs-play-btn{
+    width:74px; height:74px; border-radius:50%; background:#fff; display:flex; align-items:center; justify-content:center;
+    box-shadow:0 14px 30px rgba(0,0,0,0.35); transition:transform .25s ease;
+  }
+  .video-stage:hover .vs-play-btn{transform:scale(1.08);}
+  .vs-caption{
+    position:absolute; left:18px; bottom:18px; background:rgba(255,255,255,0.95); color:var(--violet-deep);
+    padding:9px 16px; border-radius:99px; font-size:12.5px; font-weight:700; display:flex; align-items:center; gap:8px;
+  }
+  .vs-caption .liveDot{width:7px; height:7px; border-radius:50%; background:#FF6E5E; animation:pulseDot 1.4s infinite;}
+  .scene{transition:opacity .6s ease;}
+  .vs-scenebar{position:absolute; top:14px; left:14px; right:14px; display:flex; gap:6px; z-index:3;}
+  .vs-scenebar .seg{flex:1; height:4px; border-radius:99px; background:rgba(255,255,255,0.28); overflow:hidden; cursor:pointer;}
+  .vs-scenebar .seg i{display:block; height:100%; width:0%; background:#fff; border-radius:99px;}
+  .vs-scenebar .seg.done i{width:100%; transition:none;}
+  .vs-scenebar .seg.active i{width:0%; animation:segfill 2.4s linear forwards;}
+  @keyframes segfill{to{width:100%;}}
+  .vs-label{position:absolute; right:18px; bottom:18px; background:rgba(255,255,255,0.95); color:var(--violet-deep); padding:9px 14px; border-radius:99px; font-size:12px; font-weight:700;}
+
+  .mission{background:var(--cream);}
+  .mission-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:800px){ .mission-grid{grid-template-columns:1fr;} }
+  .m-card{
+    background:#fff; border-radius:20px; padding:32px 28px; border:1px solid var(--line);
+    transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .m-card:hover{transform:translateY(-4px); box-shadow:0 18px 36px rgba(59,28,92,0.1);}
+  .m-card .num{font-family:var(--font-display); font-size:14px; color:var(--coral); font-weight:700; margin-bottom:14px;}
+  .m-card h3{font-family:var(--font-display); font-size:21px; font-weight:600; margin-bottom:10px; color:var(--violet-deep);}
+  .m-card p{font-size:15px; color:#54486B;}
+
+  /* ---------- tracks ---------- */
+  .tracks{background:var(--paper);}
+  .track-tabs{display:flex; gap:10px; margin-bottom:40px; flex-wrap:wrap;}
+  .tab-btn{
+    padding:11px 22px; border-radius:99px; border:1.5px solid var(--line); background:#fff;
+    font-weight:700; font-size:14px; cursor:pointer; color:var(--ink); transition:all .2s ease;
+  }
+  .tab-btn.active{background:var(--violet-deep); border-color:var(--violet-deep); color:#fff;}
+  .track-panel{display:none; grid-template-columns:0.9fr 1.1fr; gap:50px; align-items:center;}
+  .track-panel.active{display:grid;}
+  @media (max-width:840px){ .track-panel.active{grid-template-columns:1fr;} }
+  .track-img{border-radius:24px; overflow:hidden; aspect-ratio:4/3.4; position:relative;}
+  .track-img img{width:100%; height:100%; object-fit:cover;}
+  .age-pill{
+    position:absolute; top:18px; left:18px; background:rgba(27,19,48,0.78); backdrop-filter:blur(6px);
+    color:#fff; font-weight:700; font-size:13px; padding:8px 16px; border-radius:99px;
+  }
+  .track-list{list-style:none; display:grid; gap:12px; margin-top:24px;}
+  .track-list li{
+    display:flex; gap:12px; align-items:flex-start; font-size:15px; color:#3B2E55; padding:4px 0;
+  }
+  .track-list li::before{
+    content:''; width:7px; height:7px; border-radius:50%; background:var(--coral); margin-top:8px; flex-shrink:0;
+  }
+  .track-panel h3{font-family:var(--font-display); font-weight:600; font-size:28px; color:var(--violet-deep); margin-bottom:8px;}
+  .track-panel .sub{color:var(--magenta); font-weight:700; font-size:14px; text-transform:uppercase; letter-spacing:0.04em; margin-bottom:14px;}
+
+  /* ---------- schedule ---------- */
+  .schedule{background:var(--violet-deep); color:#fff; position:relative; overflow:hidden;}
+  .schedule .section-head h2, .schedule .kicker{color:#fff;}
+  .schedule .kicker{color:#FFB5A8;}
+  .schedule .section-head p{color:rgba(255,255,255,0.75);}
+  .day-rail{position:relative; padding-left:36px;}
+  .day-rail::before{content:''; position:absolute; left:8px; top:6px; bottom:6px; width:2px; background:rgba(255,255,255,0.18);}
+  .day-item{position:relative; padding-bottom:38px; cursor:pointer;}
+  .day-item:last-child{padding-bottom:0;}
+  .day-item::before{
+    content:''; position:absolute; left:-36px; top:4px; width:18px; height:18px; border-radius:50%;
+    background:var(--coral); border:4px solid var(--violet-deep); box-shadow:0 0 0 2px rgba(255,110,94,0.4);
+    transition:transform .2s ease;
+  }
+  .day-item:hover::before{transform:scale(1.25);}
+  .day-item .d-label{font-size:13px; font-weight:700; letter-spacing:0.05em; text-transform:uppercase; color:#FFB5A8; margin-bottom:6px;}
+  .day-item h4{font-family:var(--font-display); font-size:22px; font-weight:600; margin-bottom:10px;}
+  .day-cols{display:grid; grid-template-columns:1fr 1fr; gap:20px;}
+  @media (max-width:640px){ .day-cols{grid-template-columns:1fr;} }
+  .day-cols div{background:rgba(255,255,255,0.08); border-radius:14px; padding:16px 18px; font-size:14.5px; transition:background .2s ease;}
+  .day-item:hover .day-cols div{background:rgba(255,255,255,0.14);}
+  .day-cols div b{display:block; font-size:12px; text-transform:uppercase; letter-spacing:0.04em; color:#FFB5A8; margin-bottom:6px;}
+
+  /* ---------- gallery / exhibition ---------- */
+  .gallery{background:var(--lavender);}
+  .gal-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  @media (max-width:900px){ .gal-grid{grid-template-columns:repeat(2,1fr);} }
+  .gal-grid img{border-radius:18px; aspect-ratio:1/1; object-fit:cover; transition:transform .35s ease;}
+  .gal-grid a{overflow:hidden; border-radius:18px; display:block;}
+  .gal-grid a:hover img{transform:scale(1.06);}
+
+  /* ---------- impact / goals ---------- */
+  .impact{background:var(--paper);}
+  .impact-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  @media (max-width:900px){ .impact-grid{grid-template-columns:repeat(2,1fr);} }
+  .impact-card{
+    border:1px solid var(--line); border-radius:18px; padding:26px 22px; background:#fff;
+  }
+  .impact-card .big{font-family:var(--font-display); font-size:38px; font-weight:600; color:var(--coral);}
+  .impact-card .lbl{font-size:14px; color:#54486B; margin-top:6px; font-weight:600;}
+
+  /* ---------- mentors / quotes ---------- */
+  .mentors{background:var(--cream);}
+  .mentor-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:24px;}
+  @media (max-width:800px){ .mentor-grid{grid-template-columns:1fr;} }
+  .mentor-card{background:#fff; border-radius:20px; overflow:hidden; border:1px solid var(--line);}
+  .mentor-card img{width:100%; aspect-ratio:4/3.2; object-fit:cover;}
+  .mentor-body{padding:22px 24px;}
+  .mentor-body .quote{font-family:var(--font-display); font-style:italic; font-size:17px; color:var(--violet-deep); margin-bottom:14px; line-height:1.4;}
+  .mentor-body .who{font-size:13.5px; font-weight:700; color:#54486B;}
+
+  /* ---------- partners ---------- */
+  .partners{background:var(--paper); text-align:center;}
+  .partner-row{display:flex; justify-content:center; gap:50px; flex-wrap:wrap; margin-top:40px; opacity:0.75;}
+  .partner-row span{font-family:var(--font-display); font-size:20px; font-weight:600; color:var(--violet);}
+
+  /* ---------- registration audience tabs ---------- */
+  .reg-zone{background:var(--lavender);}
+  .reg-tabs{display:flex; gap:10px; margin-bottom:36px; flex-wrap:wrap;}
+  .reg-tab{
+    padding:12px 22px; border-radius:99px; border:1.5px solid var(--line); background:#fff;
+    font-weight:700; font-size:14px; cursor:pointer; color:var(--ink); transition:all .2s ease;
+    display:flex; align-items:center; gap:8px;
+  }
+  .reg-tab.active{background:var(--magenta); border-color:var(--magenta); color:#fff;}
+  .reg-panel{display:none; background:#fff; border-radius:24px; padding:42px; border:1px solid var(--line);
+    grid-template-columns:1.2fr 0.8fr; gap:40px; align-items:center;}
+  .reg-panel.active{display:grid;}
+  @media (max-width:760px){ .reg-panel.active{grid-template-columns:1fr;} }
+  .reg-panel h3{font-family:var(--font-display); font-size:26px; font-weight:600; color:var(--violet-deep); margin-bottom:12px;}
+  .reg-panel p{font-size:15.5px; color:#54486B; margin-bottom:20px;}
+  .reg-panel ul{list-style:none; display:grid; gap:10px; margin-bottom:24px;}
+  .reg-panel ul li{display:flex; gap:10px; font-size:14.5px; color:#3B2E55;}
+  .reg-panel ul li::before{content:'✓'; color:var(--teal); font-weight:800;}
+  .reg-side{background:var(--cream); border-radius:18px; padding:28px; text-align:center;}
+  .reg-side .ic-wrap{width:56px; height:56px; border-radius:50%; background:var(--magenta); display:flex; align-items:center; justify-content:center; margin:0 auto 16px;}
+  .reg-side .who-lbl{font-weight:700; font-size:14px; color:var(--violet-deep); margin-bottom:18px;}
+
+  /* ---------- CTA / register ---------- */
+  .cta{
+    background:linear-gradient(120deg, var(--magenta), var(--coral));
+    color:#fff; border-radius:32px; margin:0 32px; padding:64px 48px;
+    text-align:center; position:relative; overflow:hidden;
+  }
+  @media (max-width:640px){ .cta{margin:0 16px; padding:48px 26px;} }
+  .cta h2{font-family:var(--font-display); font-weight:600; font-size:clamp(28px,4vw,42px); margin-bottom:16px;}
+  .cta p{font-size:17px; max-width:520px; margin:0 auto 30px; color:rgba(255,255,255,0.92);}
+  .cta .btn-primary{background:#fff; color:var(--violet-deep);}
+  .cta .btn-primary:hover{background:#FFF0EB;}
+  .cta-actions{display:flex; gap:14px; justify-content:center; flex-wrap:wrap;}
+  .cta-meta{margin-top:28px; display:flex; gap:28px; justify-content:center; flex-wrap:wrap; font-size:14px; font-weight:600;}
+
+  /* ---------- footer ---------- */
+  footer{background:var(--ink); color:rgba(255,255,255,0.75); padding:64px 0 28px; margin-top:90px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; padding-bottom:40px; border-bottom:1px solid rgba(255,255,255,0.12);}
+  @media (max-width:800px){ .foot-grid{grid-template-columns:1fr 1fr;} }
+  .foot-brand{display:flex; align-items:center; gap:10px; font-family:var(--font-display); font-weight:700; font-size:19px; color:#fff; margin-bottom:14px;}
+  .foot-brand .mark{width:30px; height:30px;}
+  footer h5{color:#fff; font-size:13px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:16px;}
+  footer ul{list-style:none; display:grid; gap:10px; font-size:14.5px;}
+  footer a{text-decoration:none;}
+  footer a:hover{color:#fff;}
+  .foot-bottom{display:flex; justify-content:space-between; padding-top:26px; font-size:13px; flex-wrap:wrap; gap:10px;}
+
+  /* fade-in on scroll */
+  .reveal{opacity:0; transform:translateY(18px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+</style>
+</head>
+<body>
+
+<div class="announce">
+  <div class="announce-inner">
+    <span class="announce-pulse"></span>
+    <span><b>Registration is open now</b> — Camp runs late August 2026</span>
+    <a href="BioSTEMists_Proposal.pdf" target="_blank">View full proposal ↗</a>
+  </div>
+</div>
+<header class="nav">
+  <div class="nav-inner">
+    <a class="brand" href="#top">
+      <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="40" height="40" rx="10" fill="#3B1C5C"/>
+        <path d="M6 21h5l2.5-7 4 14 3-10 2 3h11.5" stroke="#FF6E5E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+      </svg>
+      BioSTEMinists
+    </a>
+    <nav class="nav-links">
+      <a href="#mission">Mission</a>
+      <a href="#tracks">Tracks</a>
+      <a href="#schedule">Schedule</a>
+      <a href="#gallery">Exhibition</a>
+      <a href="#mentors">Mentors</a>
+      <a href="#register">Apply</a>
+    </nav>
+    <a class="nav-cta" href="#register">Register now</a>
+  </div>
+</header>
+
+<main id="top">
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div>
+        <div class="eyebrow"><span class="dot"></span> 5-Day Camp · IEEE EMBS E-JUST SBC</div>
+        <h1>Where a <em>heartbeat</em><br>becomes code.</h1>
+        <p class="lede">A hands-on biomedical engineering camp for girls ages 5–18 — building sensors, AI, and IoT health tech, then exhibiting it at a hackathon for their community. Registration is open now — camp runs in late August 2026.</p>
+        <div class="hero-actions">
+          <a href="#register" class="btn btn-primary">Reserve a spot →</a>
+          <a href="#tracks" class="btn btn-ghost">Explore the tracks</a>
+          <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-text">View full proposal ↗</a>
+        </div>
+        <div class="hero-stats">
+          <div>40<span>Girls, ages 5–18</span></div>
+          <div>8<span>Women engineer mentors</span></div>
+          <div>5<span>Days, one hackathon</span></div>
+        </div>
+        <div class="hero-org">
+          Organized by
+          <span class="org-badge">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#FF6E5E" stroke-width="2"/></svg>
+            IEEE EMBS E-JUST SBC
+          </span>
+          <span class="org-badge">IEEE Women in Engineering</span>
+        </div>
+      </div>
+      <div class="video-stage" id="videoStage" onclick="toggleScenes()">
+        <div class="vs-scenebar" id="sceneBar" onclick="event.stopPropagation()">
+          <div class="seg" data-idx="0" onclick="jumpScene(0)"><i></i></div>
+          <div class="seg" data-idx="1" onclick="jumpScene(1)"><i></i></div>
+          <div class="seg" data-idx="2" onclick="jumpScene(2)"><i></i></div>
+        </div>
+        <svg viewBox="0 0 420 320" xmlns="http://www.w3.org/2000/svg" id="sceneSvg">
+          <!-- Scene 1: pulse line build -->
+          <g class="scene" id="scene1">
+            <path class="pulse-line" d="M0 170 L70 170 L92 100 L116 240 L140 70 L160 170 L420 170" />
+            <circle class="pulse-dot" cx="140" cy="70" r="6"/>
+          </g>
+          <!-- Scene 2: circuit board -->
+          <g class="scene" id="scene2" style="opacity:0;">
+            <rect x="130" y="100" width="160" height="100" rx="10" fill="none" stroke="#FF8C7F" stroke-width="3"/>
+            <circle cx="160" cy="130" r="8" fill="#FF8C7F"/>
+            <circle cx="260" cy="130" r="8" fill="#FF8C7F"/>
+            <circle cx="160" cy="170" r="8" fill="#FF8C7F"/>
+            <circle cx="260" cy="170" r="8" fill="#FF8C7F"/>
+            <path d="M160 130 L160 170 M260 130 L260 170 M160 150 L260 150" stroke="#FFD9CF" stroke-width="2"/>
+          </g>
+          <!-- Scene 3: hackathon exhibit -->
+          <g class="scene" id="scene3" style="opacity:0;">
+            <circle cx="160" cy="150" r="34" fill="#FF8C7F"/>
+            <circle cx="260" cy="150" r="34" fill="#A8327C"/>
+            <path d="M194 150h32" stroke="#fff" stroke-width="3" stroke-dasharray="4 6"/>
+            <text x="210" y="220" text-anchor="middle" fill="#fff" font-size="14" font-family="Manrope, sans-serif" font-weight="700">Presenting to judges</text>
+          </g>
+        </svg>
+        <div class="vs-play">
+          <div class="vs-play-btn" id="playBtn">
+            <svg id="playIcon" width="26" height="26" viewBox="0 0 24 24" fill="#3B1C5C"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vs-caption"><span class="liveDot"></span> A day inside the camp</div>
+        <div class="vs-label" id="sceneLabel">Biosignals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="mission" id="mission">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Why this camp exists</div>
+        <h2 class="title">Healthcare is the doorway. Engineering is the destination.</h2>
+        <p>We pair themes that already resonate with girls — care, empathy, helping people — with rigorous technical skill-building in programming, electronics, and AI.</p>
+      </div>
+      <div class="mission-grid">
+        <div class="m-card reveal">
+          <div class="num">Vision</div>
+          <h3>Women leading health tech</h3>
+          <p>A future where young women design inclusive, human-centered healthcare solutions — not just use the technology, but build it.</p>
+        </div>
+        <div class="m-card reveal">
+          <div class="num">Mission</div>
+          <h3>From challenge to mastery</h3>
+          <p>Real medical needs become accessible entry points into biomedical engineering, AI, IoT, and VR — guided by women mentors in STEM.</p>
+        </div>
+        <div class="m-card reveal">
+          <div class="num">Method</div>
+          <h3>Build, test, exhibit</h3>
+          <p>Every camper finishes with a working device — and the confidence of demoing it live to judges, families, and healthcare professionals.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRACKS -->
+  <section class="tracks" id="tracks">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Two tracks, one mission</div>
+        <h2 class="title">Built for where each camper is starting from.</h2>
+        <p>Age-appropriate, but never watered down — both tracks ship a real, working biomedical project by Day 5.</p>
+      </div>
+      <div class="track-tabs reveal">
+        <button class="tab-btn active" data-tab="junior">Junior Innovators · 5–12</button>
+        <button class="tab-btn" data-tab="young">Young Researchers · 12–18</button>
+      </div>
+
+      <div class="track-panel active" id="junior">
+        <div class="track-img" style="background:linear-gradient(135deg,#FFD9CF,#F4C6E8); display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="150" cy="100" r="60" fill="#FF6E5E"/>
+            <circle cx="150" cy="80" r="26" fill="#3B1C5C"/>
+            <rect x="100" y="140" width="100" height="70" rx="14" fill="#6B2F8C"/>
+            <path d="M40 190 L90 190 L100 160 L116 220 L130 190 L260 190" stroke="#1B1330" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <circle cx="116" cy="220" r="6" fill="#1B1330"/>
+          </svg>
+          <span class="age-pill">Ages 5–12</span>
+        </div>
+        <div>
+          <div class="sub">Junior Innovators</div>
+          <h3>Biosignals you can see, hear, and build.</h3>
+          <ul class="track-list">
+            <li>Arduino-based heart rate monitors with LED feedback</li>
+            <li>Smart health guardians with temperature alert sensors</li>
+            <li>Computer vision image-sorting activities</li>
+            <li>VR health education with Google Cardboard</li>
+            <li>Mini hackathon &amp; interactive health tech fair on Day 5</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="track-panel" id="young">
+        <div class="track-img" style="background:linear-gradient(135deg,#D9C7F0,#FFC2B8); display:flex; align-items:center; justify-content:center;">
+          <svg viewBox="0 0 300 260" width="80%" xmlns="http://www.w3.org/2000/svg">
+            <rect x="60" y="50" width="180" height="120" rx="10" fill="#3B1C5C"/>
+            <rect x="75" y="64" width="150" height="80" rx="4" fill="#1B1330"/>
+            <path d="M85 110 L110 110 L120 90 L132 130 L142 100 L215 100" stroke="#FF6E5E" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="120" y="170" width="60" height="14" rx="4" fill="#6B2F8C"/>
+            <circle cx="230" cy="190" r="22" fill="#FF6E5E"/>
+            <path d="M222 190 l6 6 12 -14" stroke="#1B1330" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span class="age-pill">Ages 12–18</span>
+        </div>
+        <div>
+          <div class="sub">Young Researchers</div>
+          <h3>Real medical problems, real engineering.</h3>
+          <ul class="track-list">
+            <li>EEG-based epileptic seizure detection</li>
+            <li>Freezing-of-Gait prediction for Parkinson's patients</li>
+            <li>IoT heart-attack prediction with ECG &amp; cloud connectivity</li>
+            <li>AI pneumonia detection using CNNs on X-ray imaging</li>
+            <li>VR medical rehabilitation &amp; training simulations</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SCHEDULE -->
+  <section class="schedule" id="schedule">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Five days, one arc</div>
+        <h2 class="title">Each day builds on the last.</h2>
+        <p>Mornings are technical sessions; afternoons are hands-on build time — culminating in a public hackathon exhibition.</p>
+      </div>
+      <div class="day-rail">
+        <div class="day-item reveal">
+          <div class="d-label">Day 1 — Monday</div>
+          <h4>Biosignals &amp; Sensors Foundation</h4>
+          <div class="day-cols">
+            <div><b>Junior</b>Heart rate monitors with LED feedback</div>
+            <div><b>Young Researchers</b>EEG / EMG signal processing basics</div>
+          </div>
+        </div>
+        <div class="day-item reveal">
+          <div class="d-label">Day 2 — Tuesday</div>
+          <h4>IoT &amp; Connected Healthcare</h4>
+          <div class="day-cols">
+            <div><b>Junior</b>Smart health guardian, temperature alerts</div>
+            <div><b>Young Researchers</b>ECG monitoring with cloud connectivity</div>
+          </div>
+        </div>
+        <div class="day-item reveal">
+          <div class="d-label">Day 3 — Wednesday</div>
+          <h4>AI &amp; Computer Vision</h4>
+          <div class="day-cols">
+            <div><b>Junior</b>Health image sorting with Scratch &amp; Arduino</div>
+            <div><b>Young Researchers</b>Pneumonia detection using CNN models</div>
+          </div>
+        </div>
+        <div class="day-item reveal">
+          <div class="d-label">Day 4 — Thursday</div>
+          <h4>VR / AR Medical Applications</h4>
+          <div class="day-cols">
+            <div><b>Junior</b>VR health education experiences</div>
+            <div><b>Young Researchers</b>VR rehabilitation &amp; training simulations</div>
+          </div>
+        </div>
+        <div class="day-item reveal">
+          <div class="d-label">Day 5 — Friday</div>
+          <h4>Hackathon &amp; Exhibition</h4>
+          <div class="day-cols">
+            <div><b>1–2pm</b>Team presentations to judges</div>
+            <div><b>2–5pm</b>Public exhibition, demos &amp; awards</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Day 5 in action</div>
+        <h2 class="title">The hackathon exhibition.</h2>
+        <p>Teams present working prototypes to judges, healthcare professionals, and families — then walk the floor at a public health-tech fair.</p>
+      </div>
+      <div class="gal-grid">
+        <a href="#" style="background:linear-gradient(135deg,#FF6E5E,#A8327C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><path d="M10 60h16l9-26 14 46 11-32 7 12h33" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" style="background:linear-gradient(135deg,#6B2F8C,#3B1C5C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><rect x="20" y="20" width="60" height="60" rx="8" fill="none" stroke="#FFD9CF" stroke-width="5"/><circle cx="50" cy="50" r="14" fill="#FF6E5E"/></svg>
+        </a>
+        <a href="#" style="background:linear-gradient(135deg,#1E7A72,#6B2F8C); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><path d="M50 20l30 17v26l-30 17-30-17V37z" fill="none" stroke="#fff" stroke-width="5" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#" style="background:linear-gradient(135deg,#A8327C,#FF6E5E); display:flex; align-items:center; justify-content:center; aspect-ratio:1/1;">
+          <svg viewBox="0 0 100 100" width="55%"><circle cx="50" cy="38" r="16" fill="#fff"/><path d="M24 86c0-16 12-26 26-26s26 10 26 26" stroke="#fff" stroke-width="5" fill="none" stroke-linecap="round"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- IMPACT -->
+  <section class="impact">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">What we're aiming for</div>
+        <h2 class="title">Measured outcomes, not just good intentions.</h2>
+      </div>
+      <div class="impact-grid">
+        <div class="impact-card reveal"><div class="big">90%</div><div class="lbl">Program completion rate</div></div>
+        <div class="impact-card reveal"><div class="big">70%</div><div class="lbl">Avg. knowledge gain, pre/post</div></div>
+        <div class="impact-card reveal"><div class="big">85%</div><div class="lbl">Report higher STEM confidence</div></div>
+        <div class="impact-card reveal"><div class="big">50%</div><div class="lbl">Of seats are scholarship-funded</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENTORS -->
+  <section class="mentors" id="mentors">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Led by women, for young women</div>
+        <h2 class="title">A female-majority room, on purpose.</h2>
+        <p>Eight women engineers and educators mentor at a 5:1 student ratio — proof, not just promise, that engineering has room for them.</p>
+      </div>
+      <div class="mentor-grid">
+        <div class="mentor-card reveal">
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#FFD9CF,#A8327C); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#3B1C5C"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#3B1C5C"/></svg>
+          </div>
+          <div class="mentor-body">
+            <div class="quote">"I want every camper to see a woman who builds this for a living, before she ever has to imagine it."</div>
+            <div class="who">Lead Mentor, Biomedical Track</div>
+          </div>
+        </div>
+        <div class="mentor-card reveal">
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#D9C7F0,#6B2F8C); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#FF6E5E"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#FF6E5E"/></svg>
+          </div>
+          <div class="mentor-body">
+            <div class="quote">"Compassion and engineering aren't opposites here — they're the same skill, pointed at the same problem."</div>
+            <div class="who">Facilitator, IEEE EMBS E-JUST SBC</div>
+          </div>
+        </div>
+        <div class="mentor-card reveal">
+          <div style="width:100%; aspect-ratio:4/3.2; background:linear-gradient(135deg,#FFC2B8,#1E7A72); display:flex; align-items:center; justify-content:center;">
+            <svg viewBox="0 0 100 100" width="40%"><circle cx="50" cy="38" r="20" fill="#fff"/><path d="M18 90c0-20 14-32 32-32s32 12 32 32" fill="#fff"/></svg>
+          </div>
+          <div class="mentor-body">
+            <div class="quote">"Watching a 9-year-old explain her own heart-rate circuit to a room of adults — that's the whole point."</div>
+            <div class="who">Judge, Hackathon Exhibition</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNERS -->
+  <section class="partners">
+    <div class="wrap reveal">
+      <div class="kicker">In partnership with</div>
+      <h2 class="title">IEEE EMBS E-JUST SBC &amp; IEEE Women in Engineering</h2>
+      <div class="partner-row">
+        <span>IEEE EMBS</span>
+        <span>IEEE WIE</span>
+        <span>E-JUST</span>
+        <span>IEEE TryEngineering</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION AUDIENCE TABS -->
+  <section class="reg-zone" id="apply">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="kicker">Get involved</div>
+        <h2 class="title">Pick where you fit — we'll point you the right way.</h2>
+        <p>Registration is open now for the late-August 2026 session. Whether you're a parent, a school, a mentor, or a partner, here's how to start.</p>
+      </div>
+
+      <div class="reg-tabs reveal">
+        <button class="reg-tab active" data-reg="reg-applicants">🙋‍♀️ Applicants &amp; Parents</button>
+        <button class="reg-tab" data-reg="reg-schools">🏫 Schools</button>
+        <button class="reg-tab" data-reg="reg-mentors">👩‍🔬 Mentors</button>
+        <button class="reg-tab" data-reg="reg-partners">🤝 Community Partners</button>
+      </div>
+
+      <div class="reg-panel active" id="reg-applicants">
+        <div>
+          <h3>Register your camper</h3>
+          <p>Reserve one of 40 seats for a girl ages 5–18. Scholarships cover 50% of seats, so cost is never a barrier.</p>
+          <ul>
+            <li>5-day program, 9am–4pm, late August 2026</li>
+            <li>No prior coding or electronics experience needed</li>
+            <li>Ends with a hackathon demo in front of family &amp; judges</li>
+          </ul>
+          <a href="mailto:abdelrahman.wael@ieee.org?subject=Camper%20Registration%20-%20BioSTEMinists" class="btn btn-primary">Apply for a seat →</a>
+        </div>
+        <div class="reg-side">
+          <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 12c2.7 0 5-2.3 5-5s-2.3-5-5-5-5 2.3-5 5 2.3 5 5 5zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z" fill="#fff"/></svg></div>
+          <div class="who-lbl">For girls 5–18 &amp; their families</div>
+          <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-ghost" style="border-color:var(--violet-deep); color:var(--violet-deep);">Read the proposal ↗</a>
+        </div>
+      </div>
+
+      <div class="reg-panel" id="reg-schools">
+        <div>
+          <h3>Bring the camp to your school</h3>
+          <p>We partner with schools across Egypt to host sessions on-site or to nominate groups of students for a central camp.</p>
+          <ul>
+            <li>Curriculum mapped to STEM &amp; biomedical learning outcomes</li>
+            <li>We bring mentors, kits, and the hackathon format</li>
+            <li>Group/cohort nomination options available</li>
+          </ul>
+          <a href="mailto:abdelrahman.wael@ieee.org?subject=School%20Partnership%20-%20BioSTEMinists" class="btn btn-primary">Partner your school →</a>
+        </div>
+        <div class="reg-side">
+          <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2 1 8l11 6 9-4.9V17h2V8L12 2zM5 13.2V18c0 2.2 3.1 4 7 4s7-1.8 7-4v-4.8l-7 3.8-7-3.8z" fill="#fff"/></svg></div>
+          <div class="who-lbl">For school administrators &amp; counselors</div>
+          <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-ghost" style="border-color:var(--violet-deep); color:var(--violet-deep);">Read the proposal ↗</a>
+        </div>
+      </div>
+
+      <div class="reg-panel" id="reg-mentors">
+        <div>
+          <h3>Mentor the next generation</h3>
+          <p>We're building a roster of women engineers, researchers, and educators to lead sessions at a 5:1 student ratio.</p>
+          <ul>
+            <li>Biomedical, AI, IoT, and VR/AR backgrounds welcome</li>
+            <li>Paid &amp; volunteer mentor tracks available</li>
+            <li>Judge or guest-speak at the Day 5 hackathon</li>
+          </ul>
+          <a href="mailto:abdelrahman.wael@ieee.org?subject=Mentor%20Application%20-%20BioSTEMinists" class="btn btn-primary">Apply to mentor →</a>
+        </div>
+        <div class="reg-side">
+          <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M12 2a5 5 0 100 10 5 5 0 000-10zm0 12c-4.4 0-8 2.7-8 6v2h16v-2c0-3.3-3.6-6-8-6z" fill="#fff"/></svg></div>
+          <div class="who-lbl">For women engineers &amp; educators</div>
+          <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-ghost" style="border-color:var(--violet-deep); color:var(--violet-deep);">Read the proposal ↗</a>
+        </div>
+      </div>
+
+      <div class="reg-panel" id="reg-partners">
+        <div>
+          <h3>Partner with the camp</h3>
+          <p>IEEE EMBS E-JUST SBC works with sponsors, hospitals, and community organizations to fund scholarships and host the exhibition.</p>
+          <ul>
+            <li>Sponsor scholarship seats or program materials</li>
+            <li>Host the Day 5 exhibition or provide judges</li>
+            <li>Co-brand outreach with IEEE EMBS &amp; IEEE WIE</li>
+          </ul>
+          <a href="mailto:abdelrahman.wael@ieee.org?subject=Community%20Partnership%20-%20BioSTEMinists" class="btn btn-primary">Become a partner →</a>
+        </div>
+        <div class="reg-side">
+          <div class="ic-wrap"><svg width="26" height="26" viewBox="0 0 24 24" fill="none"><path d="M16 11c1.7 0 3-1.3 3-3s-1.3-3-3-3-3 1.3-3 3 1.3 3 3 3zM8 11c1.7 0 3-1.3 3-3S9.7 5 8 5 5 6.3 5 8s1.3 3 3 3zm0 2c-2.3 0-7 1.2-7 3.5V19h8.5v-2.5c0-1.1.4-2 1.1-2.7C9.7 13.3 8.8 13 8 13zm8 0c-.6 0-1.3.1-2 .3.9.8 1.5 1.9 1.5 3.2V19H23v-2.5c0-2.3-4.7-3.5-7-3.5z" fill="#fff"/></svg></div>
+          <div class="who-lbl">For sponsors, hospitals &amp; organizations</div>
+          <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-ghost" style="border-color:var(--violet-deep); color:var(--violet-deep);">Read the proposal ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="padding-top:0;">
+    <div class="cta reveal" id="register">
+      <h2>40 seats. One unforgettable week.</h2>
+      <p>Registration is open now for the next BioSTEMinists Camp, running late August 2026. Scholarships cover 50% of seats — no camper is turned away for cost.</p>
+      <div class="cta-actions">
+        <a href="mailto:abdelrahman.wael@ieee.org?subject=Registration%20Interest%20-%20BioSTEMinists" class="btn btn-primary">Get registration updates</a>
+        <a href="#apply" class="btn btn-ghost">See all ways to get involved</a>
+        <a href="BioSTEMists_Proposal.pdf" target="_blank" class="btn btn-ghost">View proposal ↗</a>
+      </div>
+      <div class="cta-meta">
+        <span>📍 Schools across Egypt</span>
+        <span>🗓️ 5-day program, late August 2026, 9am–4pm</span>
+        <span>💜 IEEE EMBS E-JUST SBC</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <svg class="mark" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect width="40" height="40" rx="10" fill="#FF6E5E"/>
+            <path d="M6 21h5l2.5-7 4 14 3-10 2 3h11.5" stroke="#1B1330" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+          </svg>
+          BioSTEMinists Camp
+        </div>
+        <p style="max-width:280px; font-size:14.5px;">Empowering young women ages 5–18 to build the future of health technology, one sensor at a time. Organized by IEEE EMBS E-JUST SBC.</p>
+      </div>
+      <div>
+        <h5>Explore</h5>
+        <ul>
+          <li><a href="#mission">Mission</a></li>
+          <li><a href="#tracks">Tracks</a></li>
+          <li><a href="#schedule">Schedule</a></li>
+          <li><a href="#gallery">Exhibition</a></li>
+          <li><a href="BioSTEMists_Proposal.pdf" target="_blank">Full proposal ↗</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Get involved</h5>
+        <ul>
+          <li><a href="#apply">Applicants &amp; parents</a></li>
+          <li><a href="#apply">Schools</a></li>
+          <li><a href="#apply">Mentors</a></li>
+          <li><a href="#apply">Community partners</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Contact</h5>
+        <ul>
+          <li><a href="mailto:abdelrahman.wael@ieee.org">abdelrahman.wael@ieee.org</a></li>
+          <li><a href="tel:+201010331884">+20 10 1033 1884</a></li>
+          <li><a href="https://www.linkedin.com/company/ieee-embs-e-just/" target="_blank">LinkedIn</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 BioSTEMinists Camp · IEEE EMBS E-JUST SBC</span>
+      <span>biosteminists-camp.vercel.app</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // Tabs (tracks)
+  document.querySelectorAll('.tab-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.track-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.tab).classList.add('active');
+    });
+  });
+  // Reveal on scroll
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Interactive hero storyboard with progress bar
+  let scenePlaying = true, sceneIdx = 0, sceneTimer;
+  const scenes = ['scene1','scene2','scene3'];
+  const sceneLabels = ['Biosignals', 'Circuit building', 'Hackathon day'];
+  function showScene(i){
+    scenes.forEach((id,n)=>{
+      document.getElementById(id).style.opacity = n===i ? '1':'0';
+    });
+    document.querySelectorAll('#sceneBar .seg').forEach((seg,n)=>{
+      seg.classList.toggle('done', n<i);
+      seg.classList.toggle('active', n===i && scenePlaying);
+      if(n!==i){ const bar = seg.querySelector('i'); if(n>i){ bar.style.width='0%'; } }
+    });
+    document.getElementById('sceneLabel').textContent = sceneLabels[i];
+  }
+  function loopScenes(){
+    clearInterval(sceneTimer);
+    sceneTimer = setInterval(()=>{
+      sceneIdx = (sceneIdx+1) % scenes.length;
+      showScene(sceneIdx);
+    }, 2400);
+  }
+  function jumpScene(i){
+    sceneIdx = i;
+    showScene(sceneIdx);
+    if(scenePlaying) loopScenes();
+  }
+  function toggleScenes(){
+    const playIcon = document.getElementById('playIcon');
+    scenePlaying = !scenePlaying;
+    if(scenePlaying){
+      playIcon.innerHTML = '<path d="M8 5v14l11-7z"/>';
+      loopScenes();
+      showScene(sceneIdx);
+    } else {
+      playIcon.innerHTML = '<rect x="6" y="5" width="4" height="14"/><rect x="14" y="5" width="4" height="14"/>';
+      clearInterval(sceneTimer);
+      document.querySelectorAll('#sceneBar .seg').forEach(s=>s.classList.remove('active'));
+    }
+  }
+  showScene(0);
+  loopScenes();
+
+  // Registration audience switcher
+  document.querySelectorAll('.reg-tab').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('.reg-tab').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.reg-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(btn.dataset.reg).classList.add('active');
+    });
+  });
+
+  // Schedule day-rail interactive highlight (click to focus a day)
+  document.querySelectorAll('.day-item').forEach(item=>{
+    item.addEventListener('click', ()=>{
+      document.querySelectorAll('.day-item').forEach(d=>d.style.opacity='0.55');
+      item.style.opacity='1';
+      setTimeout(()=>{ document.querySelectorAll('.day-item').forEach(d=>d.style.opacity='1'); }, 1400);
+    });
+  });
+</script>
+</body>
+</html>
